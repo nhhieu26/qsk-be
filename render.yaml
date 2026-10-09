@@ -1,0 +1,40 @@
+services:
+  - type: web
+    name: qsk-be
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: CORS_ORIGIN
+        sync: false
+      - key: MONGODB_URI
+        sync: false
+      - key: AUTH_SERVICE_URL
+        sync: false
+      - key: AUTH_FRONTEND_URL
+        sync: false
+      - key: SSO_CLIENT_ID
+        sync: false
+      - key: SSO_CLIENT_SECRET
+        sync: false
+      - key: SSO_REDIRECT_URI
+        sync: false
+      - key: VIETTELPOST_BASE_URL
+        value: https://partner.viettelpost.vn
+      - key: VIETTELPOST_USERNAME
+        sync: false
+      - key: VIETTELPOST_PASSWORD
+        sync: false
+      - key: VIETTELPOST_SERVICE
+        value: VSL6
+      - key: VIETTELPOST_SENDER_NAME
+        sync: false
+      - key: VIETTELPOST_SENDER_PHONE
+        sync: false
+      - key: VIETTELPOST_SENDER_ADDRESS
+        sync: false
